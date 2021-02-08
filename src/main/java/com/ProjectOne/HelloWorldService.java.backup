@@ -1,0 +1,27 @@
+package com.ProjectOne;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.PathParam;
+
+/**
+ * Root resource 
+**/
+
+@Path("hello")
+public class HelloWorldService {
+ 
+	@GET
+	@Path("/{param}")
+	public Response getMsg(@PathParam("param") String msg) {
+ 
+		String output = "Jersey say : " + msg;
+ 
+		return Response.status(200).entity(output).build();
+ 
+	}
+ 
+}
